@@ -2,10 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 // Component imports
-import Footer from '../components/footer'
-import Header from '../components/header'
 import Layout from '../components/layout'
-
 
 // Create component
 const AboutPage = () => {
