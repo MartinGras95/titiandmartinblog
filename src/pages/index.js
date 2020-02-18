@@ -3,21 +3,16 @@ import React from 'react'
 import { Link } from 'gatsby' 
 
 // component imports
-import Footer from '../components/footer'
-import Header from '../components/header'
+import Layout from '../components/layout'
 
 // Create Component
 const IndexPage = () => {
-    return(
-        <div>
-            <Header />
+    return (
+        <Layout>
             <h1>Hello</h1>
             <h2>Hey, name's Martin :) I'm a web deve student.</h2>
-            <p>Find out more about me <Link to="/about">here</Link></p>
-            <p>Need a developer? <Link to="/contact">Contact me.</Link></p>
-
-            <Footer />
-        </div>
+            <p>Find out more about me </p>
+        </Layout>
     )
 }
 
