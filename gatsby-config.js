@@ -20,6 +20,8 @@ module.exports = {
   plugins:[
     // scss
     'gatsby-plugin-sass',
+    // remark (convert markdown to html)
+    'gatsby-transformer-remark',
     // filesystem, because it is an object it need resolve to name it
     {
       resolve: 'gatsby-source-filesystem',

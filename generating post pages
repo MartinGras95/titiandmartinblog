@@ -1,0 +1,7 @@
+goal = generate a slug for each post
+
+gatsby.md -> gatsby -> /blog/gatsby
+
+goal 2 - generate the blog post page template
+
+goal 3 - generate a new page for each post
