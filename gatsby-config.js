@@ -18,6 +18,17 @@ module.exports = {
 
   // Plugins
   plugins:[
-    'gatsby-plugin-sass'
+    // scss
+    'gatsby-plugin-sass',
+    // filesystem, because it is an object it need resolve to name it
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        //source directory
+        name: 'src',
+        // path to the src directory
+        path: `${__dirname}/src/`
+      }
+    }
   ]
 }
