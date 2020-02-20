@@ -33,6 +33,7 @@ module.exports.createPages = async ({ graphql,actions}) =>{
 
     // 1. get path to template
      const blogTemplate = path.resolve('./src/templates/blog.js')
+     const eventTemplate = path.resolve('./src/templates/event.js')
 
     // MARKDOWN SETTINGS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     // 
@@ -68,8 +69,8 @@ module.exports.createPages = async ({ graphql,actions}) =>{
     // 
     // Contentful settings @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-        // 1. get markdown data slug
-        const res = await graphql(`
+    // 1. get contentful data slug for blog
+    const res = await graphql(`
         query {
             allContentfulBlogPost {
                 edges {
@@ -80,8 +81,22 @@ module.exports.createPages = async ({ graphql,actions}) =>{
             }
         }
     `)
+    
+    // 1. get contentful data slug for event
+    const res2 = await graphql(`
+    query {
+        allContentfulEvents {
+            edges {
+                node {
+                    slug
+                }
+            }
+        }
+    }
+`)
+    
 
-    // 2. create new pages.
+    // 3. create new pages for blog
     res.data.allContentfulBlogPost.edges.forEach((edge) =>{
         createPage({
             // the template path
@@ -92,6 +107,21 @@ module.exports.createPages = async ({ graphql,actions}) =>{
             context: {
                 slug: edge.node.slug
             }
+        })
+    })
+    
+    // 3. create new pages for event
+    res2.data.allContentfulEvents.edges.forEach((edge) =>{
+        createPage({
+            // the template path
+            component: eventTemplate,
+            // path of new created page
+            path: `/event/${edge.node.slug}`,
+            // Things to pass down to the template
+            context: {
+                slug: edge.node.slug
+            }
+           
         })
     })
 }
