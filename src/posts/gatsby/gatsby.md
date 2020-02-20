@@ -6,6 +6,8 @@ date: "19/02/2020"
 
 I just launched a new gatsby website!
 
+![Drone](./pic.jpg)
+
 ## Topics covered
 
 1. Gatsby

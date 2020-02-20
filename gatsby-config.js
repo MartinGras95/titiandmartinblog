@@ -20,8 +20,8 @@ module.exports = {
   plugins:[
     // scss
     'gatsby-plugin-sass',
-    // remark (convert markdown to html)
-    'gatsby-transformer-remark',
+    // plugin for images
+    'gatsby-plugin-sharp',
     // filesystem, because it is an object it need resolve to name it
     {
       resolve: 'gatsby-source-filesystem',
@@ -30,6 +30,24 @@ module.exports = {
         name: 'src',
         // path to the src directory
         path: `${__dirname}/src/`
+      }
+    },
+    {
+      // remark (convert markdown to html)
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          'gatsby-remark-relative-images',
+          {
+            // using images in markdown
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 750,
+              linkImagesToOriginal: false
+            }
+          }
+
+        ]
       }
     }
   ]
