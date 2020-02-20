@@ -4,33 +4,58 @@ import React from 'react'
 
 import Layout from '../components/layout'
 import { graphql} from 'gatsby'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
-// Graphql query to get specific blog 
+// Graphql query to get specific blog @@@@MARKDOWN@@@
 // first the query brings in a variable which is the slug variable of the page (line 13)
 // then uses the variable to filter the query to get correct blog data (line 15)
+// export const query = graphql`
+//   query (
+//     $slug: String!
+//   ) {
+//     markdownRemark(fields: {slug: {eq: $slug}}) {
+//       frontmatter {
+//         title
+//         date
+//       }
+//       html
+//     }
+//   }
+// `
+
+// CONTENTFUL QUERY
+// GETTING SPECIFIC BLOG
+
 export const query = graphql`
-  query (
-    $slug: String!
-  ) {
-    markdownRemark(fields: {slug: {eq: $slug}}) {
-      frontmatter {
-        title
-        date
+  query($slug: String!) {
+    contentfulBlogPost(slug: {eq: $slug}){
+      title
+      publishedDate(formatString: "MMMM Do, YYYY")
+      body {
+        json
       }
-      html
     }
   }
 `
+
 const Blog = (props) =>{
+  const options = {
+    // override how nodes are rendered
+    renderNode: {
+      "embedded-asset-block": (node) => {
+        const alt = node.data.target.fields.title['en-US']
+        const url = node.data.target.fields.file['en-US'].url
+        return <img alt={alt} src={url} />
+      }
+    }
+  }
+
     return(
         <Layout>
-            {/* fetching queried data from query above */}
-            <h1>{props.data.markdownRemark.frontmatter.title}</h1>
-            <p>{props.data.markdownRemark.frontmatter.date}</p>
-            {/* the html */}
-            <div dangerouslySetInnerHTML={{__html: props.data.markdownRemark.html}}>
-
-            </div>
+          <h1>{props.data.contentfulBlogPost.title}</h1>
+          <p>{props.data.contentfulBlogPost.publishedDate}</p>
+          {/* converting body json to text */}
+          {documentToReactComponents(props.data.contentfulBlogPost.body.json,options)}
         </Layout>
     )
 }
