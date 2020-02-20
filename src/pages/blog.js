@@ -46,7 +46,7 @@ const BlogPage = () =>{
     // content
     return (
         <Layout>
-            <h1>My Blog</h1>
+            <h1>Our Blogs</h1>
             <ol className={blogStyles.posts}>
                 {/* 1. fetching data from the query above
                     2. using map function to iterate through all posts

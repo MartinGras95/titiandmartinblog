@@ -6,8 +6,9 @@ import Layout from '../components/layout'
 const ContactPage = () =>{
     return(
         <Layout>
-            <h1>Contact Me</h1>
-            <p>Tweet at us <a href="https://www.twitter.com" target="_blank">Titi & Martin</a></p>
+            <h1>Contact Us</h1>
+            <p>Email: titilayo.martin@gmail.com</p>
+            <p>Tweet us <a href="https://www.twitter.com/titixmartin" target="_blank" rel="noopener noreferrer">@titixmartin</a></p>
         </Layout>
     )
 }

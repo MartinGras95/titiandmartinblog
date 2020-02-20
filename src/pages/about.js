@@ -8,7 +8,7 @@ import Layout from '../components/layout'
 const AboutPage = () => {
     return (
         <Layout>
-            <h1>About Me</h1>
+            <h1>About Us</h1>
             <p>Contact details <Link to="/contact">here</Link></p>
         </Layout>
     )
