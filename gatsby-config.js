@@ -33,6 +33,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     // Helmet
     'gatsby-plugin-react-helmet',
+    'gatsby-transformer-sharp',
     // filesystem, because it is an object it need resolve to name it
     {
       resolve: 'gatsby-source-filesystem',
