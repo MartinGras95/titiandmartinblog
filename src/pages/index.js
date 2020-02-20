@@ -5,6 +5,7 @@ import { Link,graphql,useStaticQuery } from 'gatsby'
 // component imports
 import Layout from '../components/layout'
 
+
 // Create Component
 const IndexPage = () => {
     // graphql query grabbing description attribute from metadata
@@ -13,7 +14,7 @@ const IndexPage = () => {
             site {
             siteMetadata {
                 description
-                portfolio
+                youtube
             }
             }
         }
@@ -22,7 +23,7 @@ const IndexPage = () => {
         <Layout>
             <h1>Hello</h1>
             <h2>{data.site.siteMetadata.description}</h2>
-            <p>Check out <a target="_blank" href={data.site.siteMetadata.portfolio}>my portfolio!</a> </p>
+            <p>Check out <a target="_blank" href={data.site.siteMetadata.youtube}>our youtube channel!</a> </p>
         </Layout>
     )
 }

@@ -9,15 +9,24 @@ module.exports = {
 
   // Metadata
   siteMetadata:{
-    title: "Martin Gras",
-    description:"My name is Martin and i'm a full time web development student at Napier University :)",
-    author: "Martin Gras",
-    email: "martin.gras95@gmail.com",
-    portfolio:"https://martingras95.github.io/"
+    title: "Titi & Martin Blog",
+    description:"Hey and welcome to our official blog!",
+    authorMartin: "Martin Gras",
+    authorTiti: "Titi Gras",
+    email: "titilayo.martin@gmail.com",
+    youtube:"https://www.youtube.com/channel/UCG3XCVHlLbSkLM5d5nxCcug"
   },
 
   // Plugins
   plugins:[
+    // contentful
+    {
+      resolve: 'gatsby-source-contentful',
+      options:{
+        spaceId: 'qz831v2lkjqe',
+        accessToken: 'fSHgtKA1gXyO8owW6QtRdDPe-K7vdcKynRfTrWJ-9qg'
+      }
+    },
     // scss
     'gatsby-plugin-sass',
     // plugin for images
