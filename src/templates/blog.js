@@ -5,6 +5,7 @@ import React from 'react'
 import Layout from '../components/layout'
 import { graphql} from 'gatsby'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import Head from '../components/head'
 
 // Graphql query to get specific blog @@@@MARKDOWN@@@
 // first the query brings in a variable which is the slug variable of the page (line 13)
@@ -52,6 +53,7 @@ const Blog = (props) =>{
 
     return(
         <Layout>
+          <Head title={props.data.contentfulBlogPost.title}/>
           <h1>{props.data.contentfulBlogPost.title}</h1>
           <p>{props.data.contentfulBlogPost.publishedDate}</p>
           {/* converting body json to text */}

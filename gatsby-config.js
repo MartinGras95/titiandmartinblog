@@ -31,6 +31,8 @@ module.exports = {
     'gatsby-plugin-sass',
     // plugin for images
     'gatsby-plugin-sharp',
+    // Helmet
+    'gatsby-plugin-react-helmet',
     // filesystem, because it is an object it need resolve to name it
     {
       resolve: 'gatsby-source-filesystem',

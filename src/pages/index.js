@@ -4,7 +4,7 @@ import { graphql,useStaticQuery } from 'gatsby'
 
 // component imports
 import Layout from '../components/layout'
-
+import Head from '../components/head'
 
 // Create Component
 const IndexPage = () => {
@@ -21,6 +21,7 @@ const IndexPage = () => {
     `)
     return (
         <Layout>
+            <Head title="Home" />
             <h1>Hello</h1>
             <h2>{data.site.siteMetadata.description}</h2>
             <p>Check out <a target="_blank" href={data.site.siteMetadata.youtube} rel="noopener noreferrer">our youtube channel!</a> </p>

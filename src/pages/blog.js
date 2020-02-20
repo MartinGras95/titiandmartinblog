@@ -3,6 +3,7 @@ import { graphql,useStaticQuery,Link } from 'gatsby'
 
 import Layout from '../components/layout'
 import blogStyles from './blog.module.scss'
+import Head from '../components/head'
 
 
 // Create component
@@ -46,6 +47,7 @@ const BlogPage = () =>{
     // content
     return (
         <Layout>
+            <Head title="Blog" />
             <h1>Our Blogs</h1>
             <ol className={blogStyles.posts}>
                 {/* 1. fetching data from the query above
