@@ -8,7 +8,7 @@ import Head from '../components/head'
 import indexStyles from './index.module.scss'
 import Image from 'gatsby-image'
 
-const homeImage = require('../images/homepic.jpg')
+const homeImage = require('../images/backpack.jpg')
 
 // Create Component
 const IndexPage = () => {
